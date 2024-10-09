@@ -1,0 +1,1 @@
+Developed a veterinary management system enabling users to purchase pet supplies (e.g., food, clothes), add items to a cart, and apply filters. The system also includes functionality for scheduling veterinary appointments, blogging, and user authentication (signup/signin). Built using Flask, CSS, HTML, and MySQL Workbench.
