@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PETONOID</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css">
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			
+			<div>
+				
+				<ul id="navigation">
+					<li class="menu">
+						<a href="/">Home</a>
+					</li>
+					<li class="selected">
+						<a href="/doctor">DOCTOR</a>
+					</li>
+					<li class="menu">
+						<a href="/store">STORE</a>
+					</li>
+					<li class="menu">
+						<a href="/blog">Blog</a>
+						
+					</li>
+					<li>
+						<a href="/appointment">APPOINTMENT</a>
+					</li>
+				</ul>
+			</div>
+				
+		</div>
+
+		<div class="liner" style="right:0px"></div>
+        <div class="liner" style="left:0px"></div>
+        <div style="background-color: Black; height: 10px; top:0px; position: fixed; width:100%; left:0px;"></div>
+        <div style="background-color: DarkGray; height: 30px; top:10px; position: fixed; width:100%; padding-top:2px; z-index:1;">
+            <a href="/" style="font-weight: bold; left: 300px;">Filter >></a>
+            <div class="dropdown">
+                <span style="margin-left: 1300px; margin-top: 4px;">Patient Type</span>
+                <div class="dropdown-content" style="margin-left: 1250px;">
+                {% for type in types %}
+                <form action="/doctor" method="post">
+					<input type="hidden" name="type" value="{{type[0]}}" style="margin: 3px;">
+                <input type="submit" name="type" value="{{type[0]}}" style="margin: 3px;">
+                </form>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="dropdown">
+                <span style="margin-left: 60px; margin-top: 4px;">Hospital</span>
+                <div class="dropdown-content">
+                    {% for hospital in hospitals %}
+                    <form action="/doctor" method="post">
+                    <input type="submit" name="hospital" value="{{hospital[0]}}" style="margin: 3px;">
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="dropdown">
+                <span style="margin-left: 60px; margin-right:120px; margin-top: 4px;">Branch</span>
+                <div class="dropdown-content">
+                    {% for branch in branches %}
+                    <form action="/doctor" method="post">
+                    <input type="submit" name ="branch" value="{{branch[0]}}" style="margin: 3px;">
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+		<div id="body" style="background-color:white;">
+			<h2 style="margin-left:625px;">Doctors</h2>
+
+					<table style="margin-left:auto; margin-right:auto;">
+					<tr>
+						<th>Name</th>
+						<th>Patient Type</th>
+						<th>Hospital</th>
+						<th>Branch</th>
+						<th></th>
+					</tr>
+					{% for doctor in doctors%}
+					<tr>
+						<td>{{doctor[1]}}</td>
+						<td>{{doctor[2]}}</td>
+						<td>{{doctor[4]}}</td>
+						<td>{{doctor[3]}}</td>
+						<td><form action="/doctor" method="post">
+							<input type="hidden" name="dusername" value="{{doctor[0]}}" id="dusername">
+							<input class="btn badge-dark" type="submit" value="Request Appointment" id="submit">
+						  </form></td>
+					</tr>
+					{% endfor %}
+					</table>
+				  
+		</div>
+		<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>FOLLOW US ON</h1>
+					<div>
+						<a href="" class="facebook">facebook</a>
+						<a href="" class="twitter">twitter</a>
+						<a href="" class="googleplus">googleplus</a>
+						<a href="" class="pinterest">pinterest</a>
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; PETONOID</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

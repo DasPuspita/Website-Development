@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PETONOID</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css">
+</head>
+<body>
+	<div id="page">
+		<div id="body">
+			<div class="header">
+				<div class="contact">
+					<h1>PETONOID</h1>
+					<h2>Authorisation</h2>
+					<form action="/login">
+						<input type="text" name="username" value="Username" onblur="this.value=!this.value?'Username':this.value;" onfocus="this.select()" onclick="this.value='';">
+						<input type="text" name="password" value="Password" onblur="this.value=!this.value?'Password':this.value;" onfocus="this.select()" onclick="this.value='';">
+						<input type="submit" value="Log in" id="submit">
+					</form>
+					<p>{{message}}</p>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="connect">
+				<div>
+					<h1>FOLLOW US ON</h1>
+					<div>
+						<a href="" class="facebook">facebook</a>
+						<a href="" class="twitter">twitter</a>
+						<a href="" class="googleplus">googleplus</a>
+						<a href="" class="pinterest">pinterest</a>
+					</div>
+				</div>
+			</div>
+			<div class="footnote">
+				<div>
+					<p>&copy; PETONOID</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
